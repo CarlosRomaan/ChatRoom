@@ -1,0 +1,40 @@
+﻿@model List<ChatRoomLibrary.Models.Response.RoomsResponse>
+@{
+    ViewBag.Title = "Salas de Chat";
+}
+
+<h2>@ViewBag.Title</h2>
+
+<div class="d-flex flex-wrap">
+    
+        @foreach (var room in Model)
+        {
+            <div class="card mx-4 mt-4" style="width: 14rem; height: 20rem;" onclick="GoToRoom(@room.Id);">
+                <div class="container" style="width: 160px; height: 160px;">
+                    <img src="~/Content/Img/ChatLogo.png" class="card-img-top pt-3" alt="...">
+                </div>
+                <div class="card-body">
+                    <h5 class="text-center">@room.Name</h5>
+                    <p>@room.Description</p>
+                </div>
+            </div>
+        }
+    
+</div>
+
+
+<style>
+    .card:hover {
+        transition: transform .2s;
+        transform: scale(1.1);
+        cursor: pointer;
+        border-color: gray;
+        border: solid, 15px;
+    }
+</style>
+
+<script>
+    function GoToRoom(idRoom){
+        document.location.href = "@Url.Content("~/Chat/Room")" + "?id=" + idRoom;
+    }
+</script>

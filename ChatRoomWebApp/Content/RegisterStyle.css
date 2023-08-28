@@ -1,0 +1,21 @@
+﻿body {
+    background-color: #efefef;
+}
+
+/*.registerContainer {
+    max-width: 45vh;
+    border: solid, 0;
+    border-color: black;
+}*/
+
+.bg-btn {
+    background-color: rgb(0, 87, 154);
+    border: none;
+    color: #fff;
+}
+
+.bg-btn:hover {
+    background-color: rgb(0, 87, 180);
+    border: none;
+    color: #fff;
+}

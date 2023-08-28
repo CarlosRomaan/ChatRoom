@@ -1,0 +1,68 @@
+﻿@model ChatRoomWebApp.Models.ViewModels.RegisterViewModel
+@{
+    ViewBag.Title = "Registrarse";
+    Layout = "~/Views/Shared/_LayoutRegister.cshtml";
+}
+
+<div class="row registerContainer">
+    <h2>Crear nueva cuenta</h2><br />
+    <div class="col-md-12">
+        <form action="~/User/Register" method="post">
+            <div class="d-flex justify-content-around">
+                <div class="d-inline w-50 me-3">
+                    @Html.LabelFor(d => d.Firstname)
+                    @Html.TextBoxFor(d => d.Firstname, "", new { @class = "form-control", @placeholder = "Nombre" })
+                    @Html.ValidationMessageFor(d => d.Firstname, "", new { @class = "text-danger" })<br />
+                </div>
+                <div class="d-inline w-50">
+                    @Html.LabelFor(d => d.Lastname)
+                    @Html.TextBoxFor(d => d.Lastname, "", new { @class = "form-control", @placeholder = "Apellido" })
+                    @Html.ValidationMessageFor(d => d.Lastname, "", new { @class = "text-danger" })<br />
+                </div>
+            </div>
+
+                @Html.LabelFor(d => d.Email)
+                @Html.TextBoxFor(d => d.Email, "", new { @class = "form-control", @placeholder = "Correo electrónico" })
+                @Html.ValidationMessageFor(d => d.Email, "", new { @class = "text-danger" })<br />
+
+                @Html.LabelFor(d => d.Password)
+                @Html.PasswordFor(d => d.Password, new { @class = "form-control", @placeholder = "Contraseña" })
+                @Html.ValidationMessageFor(d => d.Password, "", new { @class = "text-danger" })<br />
+
+                @Html.LabelFor(d => d.ConfirmPassword)
+                @Html.PasswordFor(d => d.ConfirmPassword, new { @class = "form-control", @placeholder = "Confirmar contraseña" })
+                @Html.ValidationMessageFor(d => d.ConfirmPassword, "", new { @class = "text-danger" })<br />
+
+                <button type="submit" class="btn btn-primary btn-lg bg-btn mt-4">Registrarse</button>
+        </form>
+    </div>
+</div>
+
+<style>
+    body{
+        background-color: #efefef;
+    }
+
+    .registerContainer {
+        background-color: #fff;
+        box-shadow: 0 1.6px 3.6px 0;
+        border: 1px solid;
+        padding: 1.6rem;
+        display: block;
+        min-height: 100vh;
+        margin-top: 2rem;
+        width: 70%;
+    }
+
+    .bg-btn {
+        background-color: rgb(0, 87, 154);
+        border: none;
+        color: #fff;
+    }
+
+    .bg-btn:hover {
+        background-color: rgb(0, 87, 180);
+        border: none;
+        color: #fff;
+    }
+</style>

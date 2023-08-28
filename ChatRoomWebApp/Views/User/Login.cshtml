@@ -1,0 +1,31 @@
+﻿@model ChatRoomWebApp.Models.ViewModels.LoginViewModel
+
+@{
+    ViewBag.Title = "Iniciar sesión";
+    Layout = "~/Views/Shared/_LayoutLogin.cshtml";
+    string error = (string)ViewBag.error;
+}
+
+<form action="~/User/Login" method="post">
+    <img class="mb-4" src="~/Content/Img/ChatRoomLogoLight.png" alt="" width="235px" height="64px">
+
+    <div class="form-floating">
+
+        @Html.TextBoxFor(d => d.Email, "", new { @class = "form-control", @placeholder = "usuario@dominio.com", @id = "floatingInput" })
+        @Html.LabelFor(d => d.Email, new { @for = "floatingInput" })
+        @Html.ValidationMessageFor(d => d.Email, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="form-floating">
+
+        @Html.PasswordFor(d => d.Password, new { @class = "form-control", @placeholder = "Contraseña", @id = "floatingPassword" })
+        @Html.LabelFor(d => d.Password, new { @for = "floatingPassword" })
+        @Html.ValidationMessageFor(d => d.Password, "", new { @class = "text-danger" })
+    </div>
+
+    <div class="text-danger">@error</div>
+
+    <button style="height:45px" class="w-100 mt-3 btn bg-btn" type="submit">Ingresar</button>
+    <p class="mt-5">¿No tienes una cuenta? Registrate <a href="~/User/Register">aquí.</a></p>
+    <p class="mt-1 mb-3 text-muted">&copy; @DateTime.Now.Year - Juan Carlos Román</p>
+</form>

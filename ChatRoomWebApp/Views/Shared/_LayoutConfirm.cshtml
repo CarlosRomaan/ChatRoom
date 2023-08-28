@@ -1,0 +1,58 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Chat Room</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <style>
+        html {
+            margin: 0;
+            margin-bottom: 40px;
+        }
+
+        body {
+            margin: 0;
+            margin-bottom: 40px;
+        }
+
+        footer {
+            height: 4rem;
+            width: 100%;
+            padding: 1.1rem;
+            display: flex;
+            flex-direction: row-reverse;
+            margin-top: 4rem;
+            position: absolute;
+            bottom: 0;
+        }
+
+        .bg-blue {
+            background-color: #00579A;
+            color: #efefef;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-sm navbar-toggleable-sm bg-blue">
+        <div class="container">
+            <a href="~/Chat/Index"><img src="~/Content/Img/ChatRoomLogo.png" alt="" width="150px" height="45px"></a>
+            <div class="d-flex justify-content-sm-around">
+            </div>
+        </div>
+    </nav>
+    <div class="container body-content">
+        @RenderBody()
+
+    </div>
+    <footer class="bg-dark text-white">
+        <p>&copy; @DateTime.Now.Year - Juan Carlos Román</p>
+    </footer>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
